@@ -37,7 +37,7 @@ if [ "$1" = "/gerrit-start.sh" ]; then
     #Or an execption will be thrown on secondary init.
     # [ ${#DATABASE_TYPE} -gt 0 ] && rm -rf "${GERRIT_SITE}/git"
     # Take a less dangerous action that require user intervention
-    [ ${#DATABASE_TYPE} -gt 0 ] && echo "Please delete ${GERRIT_SITE}/git before continuing" && exit 1
+    [ ${#DATABASE_TYPE} -gt 0 ] &&  [ -d "${GERRIT_SITE}/git" ]  && echo "Please delete ${GERRIT_SITE}/git before continuing" && exit 1
   fi
 
   # Install external plugins
