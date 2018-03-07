@@ -1,12 +1,12 @@
 FROM openjdk:8-jre-alpine
 
-MAINTAINER zsx <thinkernel@gmail.com>
+#MAINTAINER zsx <thinkernel@gmail.com>
 
 # Overridable defaults
 ENV GERRIT_HOME /var/gerrit
 ENV GERRIT_SITE ${GERRIT_HOME}/review_site
 ENV GERRIT_WAR ${GERRIT_HOME}/gerrit.war
-ENV GERRIT_VERSION 2.14.5.1
+ENV GERRIT_VERSION 2.14.6
 ENV GERRIT_USER gerrit2
 ENV GERRIT_INIT_ARGS ""
 
