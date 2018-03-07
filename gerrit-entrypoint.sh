@@ -35,7 +35,9 @@ if [ "$1" = "/gerrit-start.sh" ]; then
     #All git repositories must be removed when database is set as postgres or mysql
     #in order to be recreated at the secondary init below.
     #Or an execption will be thrown on secondary init.
-    [ ${#DATABASE_TYPE} -gt 0 ] && rm -rf "${GERRIT_SITE}/git"
+    # [ ${#DATABASE_TYPE} -gt 0 ] && rm -rf "${GERRIT_SITE}/git"
+    # Take a less dangerous action that require user intervention
+    [ ${#DATABASE_TYPE} -gt 0 ] && echo "Please delete ${GERRIT_SITE}/git before continuing" && exit 1
   fi
 
   # Install external plugins
