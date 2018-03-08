@@ -3,6 +3,11 @@
  The Gerrit code review system with PostgreSQL and OpenLDAP integration supported.
  This image is based on the openjdk:jre-alpine or the openjdk:jre-slim which makes this image small and fast.
 
+Added haveged to help combat Gerrit slow startup
+- https://bugs.chromium.org/p/gerrit/issues/detail?id=5667
+- https://www.digitalocean.com/community/tutorials/how-to-setup-additional-entropy-for-cloud-servers-using-haveged
+- https://wiki.alpinelinux.org/wiki/Entropy_and_randomness
+ 
 ## Versions
 
 #### Alpine base
