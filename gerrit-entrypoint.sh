@@ -202,10 +202,14 @@ if [ "$1" = "/gerrit-start.sh" ]; then
 
   #Section plugin events-log
   set_gerrit_config plugin.events-log.storeUrl "jdbc:h2:${GERRIT_SITE}/db/ChangeEvents"
-
+  
   #Section httpd
   [ -z "${HTTPD_LISTENURL}" ] || set_gerrit_config httpd.listenUrl "${HTTPD_LISTENURL}"
 
+  #Section gc
+  [ -z "${GC_STARTTIME}" ]             || set_gerrit_config gc.startTime "${GC_STARTTIME}"
+  [ -z "${GC_INTERVAL}" ]              || set_gerrit_config gc.interval "${GC_INTERVAL}"
+  
   #Section gitweb
   case "$GITWEB_TYPE" in
      "gitiles") su-exec $GERRIT_USER cp -f $GERRIT_HOME/gitiles.jar $GERRIT_SITE/plugins/gitiles.jar ;;
