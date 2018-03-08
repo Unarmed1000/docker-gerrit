@@ -13,10 +13,8 @@ ENV GERRIT_INIT_ARGS ""
 # Add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 RUN adduser -D -h "${GERRIT_HOME}" -g "Gerrit User" -s /sbin/nologin "${GERRIT_USER}"
 
-# Added haveged as a attempt to fix the slow Gerrit startup as talked about here
-# https://bugs.chromium.org/p/gerrit/issues/detail?id=5667
 RUN set -x \
-    && apk add --update --no-cache git openssh openssl bash perl perl-cgi git-gitweb curl su-exec procmail haveged
+    && apk add --update --no-cache git openssh openssl bash perl perl-cgi git-gitweb curl su-exec procmail
     
 RUN mkdir /docker-entrypoint-init.d
 

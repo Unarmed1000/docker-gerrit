@@ -1,9 +1,6 @@
 #!/usr/bin/env sh
 set -e
 
-# generates entropy based on CPU flutter (combat slow gerrit startup)
-haveged -w 1024
-
 set_gerrit_config() {
   su-exec ${GERRIT_USER} git config -f "${GERRIT_SITE}/etc/gerrit.config" "$@"
 }
