@@ -16,8 +16,7 @@ RUN adduser -D -h "${GERRIT_HOME}" -g "Gerrit User" -s /sbin/nologin "${GERRIT_U
 # Added haveged as a attempt to fix the slow Gerrit startup as talked about here
 # https://bugs.chromium.org/p/gerrit/issues/detail?id=5667
 RUN set -x \
-    && apk add --update --no-cache git openssh openssl bash perl perl-cgi git-gitweb curl su-exec procmail haveged \
-    && apk -U add haveged && rc-service haveged start && rc-update add haveged
+    && apk add --update --no-cache git openssh openssl bash perl perl-cgi git-gitweb curl su-exec procmail haveged
     
 RUN mkdir /docker-entrypoint-init.d
 
