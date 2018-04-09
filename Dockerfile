@@ -24,7 +24,7 @@ RUN curl -fSsL https://gerrit-releases.storage.googleapis.com/gerrit-${GERRIT_VE
 #COPY gerrit-${GERRIT_VERSION}.war $GERRIT_WAR
 
 #Download Plugins
-ENV PLUGIN_VERSION=bazel-stable-2.14
+ENV PLUGIN_VERSION=bazel-stable-2.15
 ENV GERRITFORGE_URL=https://gerrit-ci.gerritforge.com
 ENV GERRITFORGE_ARTIFACT_DIR=lastSuccessfulBuild/artifact/bazel-genfiles/plugins
 
@@ -45,7 +45,7 @@ RUN curl -fSsL \
     -o ${GERRIT_HOME}/gitiles.jar
 
 #oauth2 plugin
-ENV GERRIT_OAUTH_VERSION 2.14.3
+ENV GERRIT_OAUTH_VERSION 2.14.6
 
 RUN curl -fSsL \
     https://github.com/davido/gerrit-oauth-provider/releases/download/v${GERRIT_OAUTH_VERSION}/gerrit-oauth-provider.jar \
