@@ -25,6 +25,7 @@ RUN curl -fSsL https://gerrit-releases.storage.googleapis.com/gerrit-${GERRIT_VE
 
 #Download Plugins
 ENV PLUGIN_VERSION=bazel-stable-2.16
+ENV PLUGIN_VERSION2=bazel-master-stable-2.16
 ENV GERRITFORGE_URL=https://gerrit-ci.gerritforge.com
 ENV GERRITFORGE_ARTIFACT_DIR=lastSuccessfulBuild/artifact/bazel-genfiles/plugins
 
@@ -41,7 +42,7 @@ RUN curl -fSsL \
 
 #gitiles
 RUN curl -fSsL \
-    ${GERRITFORGE_URL}/job/plugin-gitiles-${PLUGIN_VERSION}/${GERRITFORGE_ARTIFACT_DIR}/gitiles/gitiles.jar \
+    ${GERRITFORGE_URL}/job/plugin-gitiles-${PLUGIN_VERSION2}/${GERRITFORGE_ARTIFACT_DIR}/gitiles/gitiles.jar \
     -o ${GERRIT_HOME}/gitiles.jar
 
 #oauth2 plugin
