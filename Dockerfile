@@ -42,7 +42,7 @@ RUN curl -fSsL \
 
 #gitiles
 RUN curl -fSsL \
-    ${GERRITFORGE_URL}/job/plugin-gitiles-${PLUGIN_VERSION2}/${GERRITFORGE_ARTIFACT_DIR}/gitiles/gitiles.jar \
+    ${GERRITFORGE_URL}/job/plugin-gitiles-bazel-stable-${PLUGIN_VERSION2}/${GERRITFORGE_ARTIFACT_DIR}/gitiles/gitiles.jar \
     -o ${GERRIT_HOME}/gitiles.jar
 
 #oauth2 plugin
