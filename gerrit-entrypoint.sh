@@ -39,7 +39,7 @@ if [ "$1" = "/gerrit-start.sh" ]; then
   fi
 
   # Install external plugins
-  su-exec ${GERRIT_USER} cp -f ${GERRIT_HOME}/delete-project.jar ${GERRIT_SITE}/plugins/delete-project.jar
+  # su-exec ${GERRIT_USER} cp -f ${GERRIT_HOME}/delete-project.jar ${GERRIT_SITE}/plugins/delete-project.jar
   su-exec ${GERRIT_USER} cp -f ${GERRIT_HOME}/events-log.jar ${GERRIT_SITE}/plugins/events-log.jar
 #  su-exec ${GERRIT_USER} cp -f ${GERRIT_HOME}/importer.jar ${GERRIT_SITE}/plugins/importer.jar
 
@@ -211,14 +211,14 @@ if [ "$1" = "/gerrit-start.sh" ]; then
   [ -z "${GC_INTERVAL}" ]              || set_gerrit_config gc.interval "${GC_INTERVAL}"
   
   #Section gitweb
-  case "$GITWEB_TYPE" in
-     "gitiles") su-exec $GERRIT_USER cp -f $GERRIT_HOME/gitiles.jar $GERRIT_SITE/plugins/gitiles.jar ;;
-     "") # Gitweb by default
-        set_gerrit_config gitweb.cgi "/usr/share/gitweb/gitweb.cgi"
-        export GITWEB_TYPE=gitweb
-     ;;
-  esac
-  set_gerrit_config gitweb.type "$GITWEB_TYPE"
+  #case "$GITWEB_TYPE" in
+  #   "gitiles") su-exec $GERRIT_USER cp -f $GERRIT_HOME/gitiles.jar $GERRIT_SITE/plugins/gitiles.jar ;;
+  #   "") # Gitweb by default
+  #      set_gerrit_config gitweb.cgi "/usr/share/gitweb/gitweb.cgi"
+  #      export GITWEB_TYPE=gitweb
+  #   ;;
+  #esac
+  #set_gerrit_config gitweb.type "$GITWEB_TYPE"
 
   case "${DATABASE_TYPE}" in
     postgresql) wait_for_database ${DB_PORT_5432_TCP_ADDR} ${DB_PORT_5432_TCP_PORT} ;;
