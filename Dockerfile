@@ -41,10 +41,11 @@ RUN curl -fSsL \
     ${GERRITFORGE_URL}/job/plugin-events-log-${PLUGIN_VERSION}/${GERRITFORGE_ARTIFACT_DIR}/events-log/events-log.jar \
     -o ${GERRIT_HOME}/events-log.jar
 
-#gitiles
-RUN curl -fSsL \
-    ${GERRITFORGE_URL}/job/plugin-gitiles-${PLUGIN_VERSION}/${GERRITFORGE_ARTIFACT_DIR}/gitiles/gitiles.jar \
-    -o ${GERRIT_HOME}/gitiles.jar
+# not available in 3.0
+##gitiles
+#RUN curl -fSsL \
+#    ${GERRITFORGE_URL}/job/plugin-gitiles-${PLUGIN_VERSION}/${GERRITFORGE_ARTIFACT_DIR}/gitiles/gitiles.jar \
+#    -o ${GERRIT_HOME}/gitiles.jar
 
 #oauth2 plugin
 ENV GERRIT_OAUTH_VERSION 3.0.0
