@@ -30,10 +30,11 @@ ENV PLUGIN_VERSION=bazel-stable-3.0
 ENV GERRITFORGE_URL=https://gerrit-ci.gerritforge.com
 ENV GERRITFORGE_ARTIFACT_DIR=lastSuccessfulBuild/artifact/bazel-genfiles/plugins
 
+# Not available in 3.0 yet
 #delete-project
-RUN curl -fSsL \
-    ${GERRITFORGE_URL}/job/plugin-delete-project-${PLUGIN_VERSION}/${GERRITFORGE_ARTIFACT_DIR}/delete-project/delete-project.jar \
-    -o ${GERRIT_HOME}/delete-project.jar
+#RUN curl -fSsL \
+#    ${GERRITFORGE_URL}/job/plugin-delete-project-${PLUGIN_VERSION}/${GERRITFORGE_ARTIFACT_DIR}/delete-project/delete-project.jar \
+#    -o ${GERRIT_HOME}/delete-project.jar
 
 #events-log
 #This plugin is required by gerrit-trigger plugin of Jenkins.
