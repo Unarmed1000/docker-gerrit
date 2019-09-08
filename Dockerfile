@@ -28,8 +28,7 @@ ENV PLUGIN_VERSION=bazel-stable-3.0
 #ENV PLUGIN_VERSION=bazel-stable-2.16
 #ENV PLUGIN_VERSION2=bazel-master-stable-2.16
 ENV GERRITFORGE_URL=https://gerrit-ci.gerritforge.com
-ENV GERRITFORGE_ARTIFACT_DIR=lastSuccessfulBuild/artifact/bazel-genfiles/plugins
-
+ENV GERRITFORGE_ARTIFACT_DIR=lastSuccessfulBuild/artifact/bazel-bin/plugins
 # Not available in 3.0 yet
 #delete-project
 #RUN curl -fSsL \
