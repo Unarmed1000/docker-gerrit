@@ -8,7 +8,7 @@ node('ubuntu')
     def DOCKER_PRIVATE_REGISTRY = env.DOCKER_PRIVATE_REGISTRY
     
     def IMAGE_TAG         = (env.BRANCH_NAME == 'master'  ? 'latest' : 'dev')
-    def IMAGE_ARGS        = '--pull .'
+    def IMAGE_ARGS        = '--pull --no-cache .'
 
     def DOCKERHUB_USERNAME = 'NotDefined'
     
