@@ -24,7 +24,7 @@ RUN curl -fSsL https://gerrit-releases.storage.googleapis.com/gerrit-${GERRIT_VE
 #COPY gerrit-${GERRIT_VERSION}.war $GERRIT_WAR
 
 #Download Plugins
-ENV PLUGIN_VERSION=bazel-stable-3.2
+ENV PLUGIN_VERSION=bazel-master-stable-3.2
 #ENV PLUGIN_VERSION=bazel-stable-2.16
 #ENV PLUGIN_VERSION2=bazel-master-stable-2.16
 ENV GERRITFORGE_URL=https://gerrit-ci.gerritforge.com
