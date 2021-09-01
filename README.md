@@ -8,6 +8,7 @@ Its recommended to install have haveged on the dockerhost.
 - https://www.digitalocean.com/community/tutorials/how-to-setup-additional-entropy-for-cloud-servers-using-haveged
 - https://bugs.chromium.org/p/gerrit/issues/detail?id=5667
 - https://wiki.alpinelinux.org/wiki/Entropy_and_randomness
+- https://github.com/openfrontier/docker-gerrit
  
 ## Versions
 
