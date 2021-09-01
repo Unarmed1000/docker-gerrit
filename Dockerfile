@@ -1,4 +1,4 @@
-FROM openjdk:11-jre-alpine
+FROM openjdk:11-jre-bullseye
 
 #MAINTAINER zsx <thinkernel@gmail.com>
 
