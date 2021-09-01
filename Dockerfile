@@ -1,4 +1,4 @@
-FROM openjdk:11-jre-bullseye
+FROM openjdk:11-jre-slim-buster
 
 #MAINTAINER zsx <thinkernel@gmail.com>
 
