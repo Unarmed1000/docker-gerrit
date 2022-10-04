@@ -34,6 +34,11 @@ RUN curl -fSsL \
     ${GERRITFORGE_URL}/job/plugin-events-log-bazel-master-stable-${PLUGIN_VERSION}/${GERRITFORGE_ARTIFACT_DIR}/events-log/events-log.jar \
     -o ${GERRIT_HOME}/events-log.jar
 
+#lfs
+RUN curl -fSsL \
+    ${GERRITFORGE_URL}/job/plugin-lfs-bazel-master-stable-${PLUGIN_VERSION}/${GERRITFORGE_ARTIFACT_DIR}/lfs/lfs.jar \
+    -o ${GERRIT_HOME}/lfs.jar
+
 #oauth2
 RUN curl -fSsL \
     ${GERRITFORGE_URL}/job/plugin-oauth-bazel-master-stable-${PLUGIN_VERSION}/${GERRITFORGE_ARTIFACT_DIR}/oauth/oauth.jar \
