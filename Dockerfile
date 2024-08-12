@@ -9,12 +9,10 @@ ENV GERRIT_USER gerrit2
 ENV GERRIT_INIT_ARGS "--install-plugin=delete-project --install-plugin=gitiles --install-plugin=plugin-manager"
 
 RUN apt-get update \
- && apt-get install -y software-properties-common \
- && add-apt-repository universe \
- && apt-get update \
  && apt-get -y install \
         apt-transport-https \
         bash \
+        build-essential \
         curl \
         git \
         openjdk-17-jdk \
@@ -25,6 +23,20 @@ RUN apt-get update \
         su-exec \
  && rm -rf /var/lib/apt/lists/*
 
+# Build and install su-exec from source
+RUN git clone https://github.com/ncopa/su-exec.git /tmp/su-exec && \
+    cd /tmp/su-exec && \
+    make && \
+    cp su-exec /usr/local/bin && \
+    chmod +x /usr/local/bin/su-exec && \
+    rm -rf /tmp/su-exec
+
+# Clean up unnecessary packages to reduce image size
+RUN apt-get purge -y --auto-remove \
+    build-essential \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
+ 
 # Add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 # RUN adduser -D -h "${GERRIT_HOME}" -g "Gerrit User" -s /sbin/nologin "${GERRIT_USER}"
 RUN adduser --disabled-password --home "${GERRIT_HOME}" --gecos "Gerrit User" --shell /usr/sbin/nologin "${GERRIT_USER}"
