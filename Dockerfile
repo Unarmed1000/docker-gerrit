@@ -36,7 +36,7 @@ RUN curl -fSsL \
 
 #lfs
 RUN curl -fSsL \
-    ${GERRITFORGE_URL}/job/plugin-lfs-bazel-master-stable-${PLUGIN_VERSION}/${GERRITFORGE_ARTIFACT_DIR}/lfs/lfs.jar \
+    ${GERRITFORGE_URL}/job/plugin-lfs-bazel-stable-${PLUGIN_VERSION}/${GERRITFORGE_ARTIFACT_DIR}/lfs/lfs.jar \
     -o ${GERRIT_HOME}/lfs.jar
 
 #oauth2
