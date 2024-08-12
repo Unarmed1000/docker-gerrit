@@ -1,6 +1,4 @@
-FROM adoptopenjdk/openjdk17:alpine-jre
-
-MAINTAINER zsx <thinkernel@gmail.com>
+FROM ubuntu:22.04
 
 # Overridable defaults
 ENV GERRIT_HOME /var/gerrit
@@ -9,6 +7,15 @@ ENV GERRIT_WAR ${GERRIT_HOME}/gerrit.war
 ENV GERRIT_VERSION 3.10.1
 ENV GERRIT_USER gerrit2
 ENV GERRIT_INIT_ARGS "--install-plugin=delete-project --install-plugin=gitiles --install-plugin=plugin-manager"
+
+RUN apt-get update \
+ && apt-get -y install \
+        apt-transport-https \
+        curl \
+        git \
+        openjdk-17-jdk \
+        software-properties-common \
+ && rm -rf /var/lib/apt/lists/*
 
 # Add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 RUN adduser -D -h "${GERRIT_HOME}" -g "Gerrit User" -s /sbin/nologin "${GERRIT_USER}"
