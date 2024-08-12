@@ -8,7 +8,9 @@ ENV GERRIT_VERSION 3.10.1
 ENV GERRIT_USER gerrit2
 ENV GERRIT_INIT_ARGS "--install-plugin=delete-project --install-plugin=gitiles --install-plugin=plugin-manager"
 
-RUN add-apt-repository universe \
+RUN apt-get update \
+ && apt-get install -y software-properties-common &&
+ && add-apt-repository universe \
  && apt-get update \
  && apt-get -y install \
         apt-transport-https \
@@ -20,7 +22,6 @@ RUN add-apt-repository universe \
         openssl \
         perl \
         gitweb \
-        software-properties-common \
         su-exec \
  && rm -rf /var/lib/apt/lists/*
 
