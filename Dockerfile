@@ -20,6 +20,7 @@ RUN apt-get update \
         perl \
         gitweb \
         software-properties-common \
+        su-exec \
  && rm -rf /var/lib/apt/lists/*
 
 # Add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
