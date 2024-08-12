@@ -8,7 +8,8 @@ ENV GERRIT_VERSION 3.10.1
 ENV GERRIT_USER gerrit2
 ENV GERRIT_INIT_ARGS "--install-plugin=delete-project --install-plugin=gitiles --install-plugin=plugin-manager"
 
-RUN apt-get update \
+RUN add-apt-repository universe \
+ && apt-get update \
  && apt-get -y install \
         apt-transport-https \
         bash \
