@@ -1,6 +1,4 @@
-FROM adoptopenjdk/openjdk11:alpine-jre
-
-MAINTAINER zsx <thinkernel@gmail.com>
+FROM eclipse-temurin:17-jre-alpine
 
 # Overridable defaults
 ENV GERRIT_HOME /var/gerrit
