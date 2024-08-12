@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk11:alpine-jre
+FROM adoptopenjdk/openjdk17:alpine-jre
 
 MAINTAINER zsx <thinkernel@gmail.com>
 
