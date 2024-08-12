@@ -20,7 +20,6 @@ RUN apt-get update \
         openssl \
         perl \
         gitweb \
-        su-exec \
  && rm -rf /var/lib/apt/lists/*
 
 # Build and install su-exec from source
