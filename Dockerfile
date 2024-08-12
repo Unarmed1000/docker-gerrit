@@ -23,7 +23,8 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/*
 
 # Add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
-RUN adduser -D -h "${GERRIT_HOME}" -g "Gerrit User" -s /sbin/nologin "${GERRIT_USER}"
+# RUN adduser -D -h "${GERRIT_HOME}" -g "Gerrit User" -s /sbin/nologin "${GERRIT_USER}"
+RUN adduser --disabled-password --home "${GERRIT_HOME}" --gecos "Gerrit User" --shell /usr/sbin/nologin "${GERRIT_USER}"
 
 RUN mkdir /docker-entrypoint-init.d
 
