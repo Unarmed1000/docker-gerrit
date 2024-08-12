@@ -18,10 +18,8 @@ RUN apt-get update \
         openssh-client \
         openssl \
         perl \
-        perl-cgi \
-        git-gitweb \
+        gitweb \
         software-properties-common \
-        su-exec \
  && rm -rf /var/lib/apt/lists/*
 
 # Add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
