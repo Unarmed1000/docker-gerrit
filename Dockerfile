@@ -4,7 +4,7 @@ FROM eclipse-temurin:17-jre-alpine
 ENV GERRIT_HOME /var/gerrit
 ENV GERRIT_SITE ${GERRIT_HOME}/review_site
 ENV GERRIT_WAR ${GERRIT_HOME}/gerrit.war
-ENV GERRIT_VERSION 3.12.0
+ENV GERRIT_VERSION 3.10.1
 ENV GERRIT_USER gerrit2
 ENV GERRIT_INIT_ARGS "--install-plugin=delete-project --install-plugin=gitiles --install-plugin=plugin-manager"
 
@@ -22,7 +22,7 @@ RUN curl -fSsL https://gerrit-releases.storage.googleapis.com/gerrit-${GERRIT_VE
 #COPY gerrit-${GERRIT_VERSION}.war $GERRIT_WAR
 
 #Download Plugins
-ENV PLUGIN_VERSION=3.12
+ENV PLUGIN_VERSION=3.10
 ENV GERRITFORGE_URL=https://gerrit-ci.gerritforge.com
 ENV GERRITFORGE_ARTIFACT_DIR=lastSuccessfulBuild/artifact/bazel-bin/plugins
 
