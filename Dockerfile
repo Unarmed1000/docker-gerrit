@@ -57,6 +57,18 @@ RUN chmod +x /gerrit*.sh
 #So gerrit user can own this directory.
 RUN su-exec ${GERRIT_USER} mkdir -p $GERRIT_SITE
 
+# Pre-initialize Gerrit site to ensure bin/gerrit CLI is available
+# This creates the basic structure including bin/gerrit.sh
+RUN su-exec ${GERRIT_USER} java -jar "${GERRIT_WAR}" init --batch --no-auto-start -d "${GERRIT_SITE}" ${GERRIT_INIT_ARGS} \
+    && su-exec ${GERRIT_USER} rm -rf "${GERRIT_SITE}/git" \
+    && su-exec ${GERRIT_USER} rm -rf "${GERRIT_SITE}/db" \
+    && su-exec ${GERRIT_USER} rm -rf "${GERRIT_SITE}/cache" \
+    && su-exec ${GERRIT_USER} rm -rf "${GERRIT_SITE}/index"
+
+# Create a convenient wrapper script for the Gerrit CLI
+RUN echo '#!/bin/bash\nexec su-exec ${GERRIT_USER} ${GERRIT_SITE}/bin/gerrit.sh "$@"' > /usr/local/bin/gerrit \
+    && chmod +x /usr/local/bin/gerrit
+
 #Gerrit site directory is a volume, so configuration and repositories
 #can be persisted and survive image upgrades.
 VOLUME $GERRIT_SITE
