@@ -66,7 +66,7 @@ RUN su-exec ${GERRIT_USER} java -jar "${GERRIT_WAR}" init --batch --no-auto-star
     && su-exec ${GERRIT_USER} rm -rf "${GERRIT_SITE}/index"
 
 # Create a convenient wrapper script for the Gerrit CLI
-RUN echo '#!/bin/bash\nexec su-exec ${GERRIT_USER} ${GERRIT_SITE}/bin/gerrit.sh "$@"' > /usr/local/bin/gerrit \
+RUN printf '#!/bin/bash\nexec su-exec ${GERRIT_USER} ${GERRIT_SITE}/bin/gerrit.sh "$@"\n' > /usr/local/bin/gerrit \
     && chmod +x /usr/local/bin/gerrit
 
 #Gerrit site directory is a volume, so configuration and repositories
