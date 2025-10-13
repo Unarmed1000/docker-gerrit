@@ -59,6 +59,7 @@ RUN su-exec ${GERRIT_USER} mkdir -p $GERRIT_SITE
 
 # Pre-initialize Gerrit site to ensure bin/gerrit CLI is available
 # This creates the basic structure including bin/gerrit.sh
+# Note: Use 'docker exec <container> gerrit reindex' for reindexing
 RUN su-exec ${GERRIT_USER} java -jar "${GERRIT_WAR}" init --batch --no-auto-start -d "${GERRIT_SITE}" ${GERRIT_INIT_ARGS} \
     && su-exec ${GERRIT_USER} rm -rf "${GERRIT_SITE}/git" \
     && su-exec ${GERRIT_USER} rm -rf "${GERRIT_SITE}/db" \
