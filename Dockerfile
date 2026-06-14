@@ -30,7 +30,7 @@ ENV GERRITFORGE_ARTIFACT_DIR=lastSuccessfulBuild/artifact/bazel-bin/plugins
 #This plugin is required by gerrit-trigger plugin of Jenkins.
 #    ${GERRITFORGE_URL}/job/plugin-events-log-bazel-master-master/${GERRITFORGE_ARTIFACT_DIR}/events-log/events-log.jar \
 RUN curl -fSsL \
-     ${GERRITFORGE_URL}/job/plugin-events-log-bazel-stable-{PLUGIN_VERSION}/${GERRITFORGE_ARTIFACT_DIR}/events-log/events-log.jar \
+     ${GERRITFORGE_URL}/job/plugin-events-log-bazel-stable-${PLUGIN_VERSION}/${GERRITFORGE_ARTIFACT_DIR}/events-log/events-log.jar \
     -o ${GERRIT_HOME}/events-log.jar
 
 
@@ -41,7 +41,7 @@ RUN curl -fSsL \
 
 #oauth2
 RUN curl -fSsL \
-    ${GERRITFORGE_URL}/job/plugin-oauth-bazel-master-stable-${PLUGIN_VERSION}/${GERRITFORGE_ARTIFACT_DIR}/oauth/oauth.jar \
+    ${GERRITFORGE_URL}/job/plugin-oauth-bazel-stable-${PLUGIN_VERSION}/${GERRITFORGE_ARTIFACT_DIR}/oauth/oauth.jar \
     -o ${GERRIT_HOME}/oauth.jar
 
 #importer
