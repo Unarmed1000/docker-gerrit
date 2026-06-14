@@ -22,7 +22,7 @@ RUN curl -fSsL https://gerrit-releases.storage.googleapis.com/gerrit-${GERRIT_VE
 #COPY gerrit-${GERRIT_VERSION}.war $GERRIT_WAR
 
 #Download Plugins
-ENV PLUGIN_VERSION=3.12
+ENV PLUGIN_VERSION=3.13
 ENV GERRITFORGE_URL=https://gerrit-ci.gerritforge.com
 ENV GERRITFORGE_ARTIFACT_DIR=lastSuccessfulBuild/artifact/bazel-bin/plugins
 
